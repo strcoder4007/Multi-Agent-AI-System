@@ -21,11 +21,15 @@ This project implements a sophisticated multi-agent AI system designed to conduc
 ## Installation
 
 1. Clone the repository:
-```git clone https://github.com/yourusername/reddit-multi-agent-ai.git
-cd reddit-multi-agent-ai```
+    ```
+    git clone https://github.com/yourusername/reddit-multi-agent-ai.git
+    cd reddit-multi-agent-ai
+    ```
 
 2. Install dependencies:
-```pip install -r requirements.txt```
+    ```
+    pip install -r requirements.txt
+    ```
 
 3. Set up API keys:
 - Create a `.env` file in the project root.
@@ -39,7 +43,9 @@ cd reddit-multi-agent-ai```
 ## Usage
 
 Run the main script:
-```python agent.py```
+```
+python agent.py
+```
 
 Follow the prompts to enter your research query. The system will then:
 1. Conduct research across relevant subreddits.
