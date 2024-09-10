@@ -17,9 +17,7 @@ llm = HuggingFaceEndpoint(
 )
 
 
-# os.environ["GOOGLE_API_KEY"] = "AIzaSyAdvi5FDIVPLUokRD4KBjve4UdfZOSmbVo"
 os.environ["SERPER_API_KEY"] = "29e9856df645a3ac5c5bcb6bdad3e582be0322fa"
-# os.environ["HUGGINGFACE_TOKEN"] = "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"
 
 
 # # Create the first LLM
