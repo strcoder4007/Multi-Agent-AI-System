@@ -18,6 +18,9 @@ This project implements a sophisticated multi-agent AI system designed to conduc
 - [Langchain](https://github.com/hwchase17/langchain): For building applications with large language models.
 - [Gemini API](https://ai.google.dev/docs): Google's advanced language model for natural language processing tasks.
 
+
+![Multi Agent AI System Architecture](/image.jpg)
+
 ## Installation
 
 1. Clone the repository:
