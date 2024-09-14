@@ -1,35 +1,20 @@
 import os
+from dotenv import load_dotenv
+
 from crewai import Crew, Task, Agent, Process
 from crewai_tools import SerperDevTool
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import OllamaLLM
 
+load_dotenv()
 
-from langchain_huggingface import HuggingFaceEndpoint
-from langchain_community.chat_models.huggingface import ChatHuggingFace
-
-# Get the Hugging Face token
-huggingface_token = "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"
-
-# Initialize the Hugging Face model
-llm = HuggingFaceEndpoint(
-    repo_id="meta-llama/Meta-Llama-3.1-8B-Instruct",  # Replace with the model you want to use
-    huggingfacehub_api_token=huggingface_token
-)
-
-
-os.environ["SERPER_API_KEY"] = "29e9856df645a3ac5c5bcb6bdad3e582be0322fa"
-
-
-# # Create the first LLM
-# llm = ChatGoogleGenerativeAI(
-#     model="gemini-1.5-pro",
-#     temperature=0,
-#     max_tokens=300,
-#     timeout=None,
-#     max_retries=2
-# )
+os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
 
 search_tool = SerperDevTool()
+
+llm = OllamaLLM(
+  model="llama3.1:8b",
+  base_url="http://localhost:11434"
+)
 
 user_query = input("Search Reddit: ")
 
@@ -48,7 +33,7 @@ writer = Agent(
   role='Content Synthesizer and Analyst',
   goal='Analyze and synthesize research findings into coherent, insightful, and well-structured reports',
   backstory="""You are a skilled content creator with a background in data analysis and journalism. Your forte is taking complex, multi-faceted information and distilling it into clear, engaging, and informative content. You have a talent for identifying key themes, drawing connections between diverse pieces of information, and presenting findings in a way that is both accessible and comprehensive.""",
-  verbose=0,
+  verbose=False,
   llm=llm,
   allow_delegation=False
 )
@@ -71,7 +56,8 @@ task2 = Task(
 crew = Crew(
   agents=[researcher, writer],
   tasks=[task1, task2],
-  verbose=0,
+  verbose=False,
+  memory=False,
   process = Process.sequential
 )
 
