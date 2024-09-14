@@ -1,13 +1,13 @@
-# Reddit Multi-Agent AI Research System
+#  Multi-Agent AI Research System
 
 ## Overview
 
-This project implements a sophisticated multi-agent AI system designed to conduct comprehensive research across various subreddits based on user queries. Utilizing CrewAI, Langchain, and the Gemini API, this system automates the process of gathering, analyzing, and synthesizing information from Reddit, providing users with well-structured and insightful reports.
+This project implements a sophisticated multi-agent AI system designed to conduct comprehensive research across various websites based on user queries. Utilizing CrewAI, Langchain, and local open source model (dolphin-llama3), this system automates the process of gathering, analyzing, and synthesizing information from websites, forums, reddit and providing users with well-structured and insightful reports.
 
 ## Features
 
-- **Dynamic Query Processing**: Accepts user-defined queries for targeted Reddit research.
-- **Multi-Subreddit Analysis**: Searches across multiple relevant subreddits to gather diverse perspectives.
+- **Dynamic Query Processing**: Accepts user-defined queries for targeted website research.
+- **Multi-source Analysis**: Searches across multiple relevant websites and subreddits to gather diverse perspectives.
 - **Engagement Metrics**: Collects and analyzes post engagement data (upvotes, comments) to gauge topic popularity.
 - **Comprehensive Reporting**: Generates detailed reports synthesizing findings into coherent, insightful content.
 - **Scalable Agent Architecture**: Utilizes specialized AI agents for research and content creation tasks.
@@ -16,8 +16,9 @@ This project implements a sophisticated multi-agent AI system designed to conduc
 
 - [CrewAI](https://github.com/joaomdmoura/crewAI): For orchestrating multiple AI agents.
 - [Langchain](https://github.com/hwchase17/langchain): For building applications with large language models.
-- [Gemini API](https://ai.google.dev/docs): Google's advanced language model for natural language processing tasks.
-
+- [Ollama](https://ollama.com/library/dolphin-llama3): 
+```ollama pull dolphin-llama3
+```
 
 ![Multi Agent AI System Architecture](/image.jpg)
 
@@ -25,8 +26,8 @@ This project implements a sophisticated multi-agent AI system designed to conduc
 
 1. Clone the repository:
     ```
-    git clone https://github.com/yourusername/reddit-multi-agent-ai.git
-    cd reddit-multi-agent-ai
+    git clone https://github.com/strcoder4007/Multi-Agent-AI-System
+    cd Multi-Agent-AI-System
     ```
 
 2. Install dependencies:
