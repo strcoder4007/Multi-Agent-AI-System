@@ -27,7 +27,7 @@ researcher = Agent(
   verbose=1,
   llm=llm,
   allow_delegation=False,
-  tools=[search_tool, web_rag_tool]
+  tools=[search_tool]
 )
 
 writer = Agent(
@@ -41,7 +41,7 @@ writer = Agent(
 
 # Create tasks for your agents
 task1 = Task(
-  description=f"""Query: {user_query}. Conduct a thorough internet-wide search for information related to the given query. Explore multiple platforms including but not limited to search engines, academic databases, social media, forums, blogs, news sites, and specialized online communities. Identify key discussions, popular opinions, expert insights, controversies, and any unique perspectives. Collect data on content engagement (views, likes, shares, comments) to gauge topic popularity and impact. Ensure to cover a diverse range of sources to get a comprehensive view. Organize the findings by platform, theme, and relevance. Note any recurring patterns, significant outliers, or emerging trends in the data. Don't hesitate to dive into niche or lesser-known sources that might provide valuable information. If initial searches don't yield satisfactory results, try alternative search strategies, rephrase queries, or explore related topics to uncover more information. If you encounter validation errors make sure you read the error and fix your action input.""",
+  description=f"""Query: {user_query}. Conduct a thorough internet-wide search for information related to the given query. Explore multiple platforms including but not limited to search engines, academic databases, social media, forums, reddit, blogs, news sites, youtube comments, and specialized online communities. Identify key discussions, popular opinions, expert insights, controversies, and any unique perspectives. Collect data on content engagement (views, likes, shares, comments) to gauge topic popularity and impact. Ensure to cover a diverse range of sources to get a comprehensive view. Organize the findings by platform, theme, and relevance. Note any recurring patterns, significant outliers, or emerging trends in the data. Don't hesitate to dive into niche or lesser-known sources that might provide valuable information. If initial searches don't yield satisfactory results, try alternative search strategies, rephrase queries, or explore related topics to uncover more information. If you encounter validation errors make sure you read the error and fix your action input. Every key inside Action Input object should have string value.""",
   expected_output="Comprehensive analysis in bullet points, including source links.",
   output_file="task1output.txt",
   agent=researcher
@@ -49,7 +49,7 @@ task1 = Task(
 
 task2 = Task(
   description=f"""User query: {user_query}. Using the research findings provided, and user query create a well composed answer. Make sure it answers my query properly. If it is a Yes/NO type of question then just output Yes/No.""",
-  expected_output="Text in simple english minimum 1 word and maximum 1000 words.",
+  expected_output="Text in simple english maximum 1000 words.",
   agent=writer
 )
 
