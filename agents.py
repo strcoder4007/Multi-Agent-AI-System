@@ -49,7 +49,7 @@ task1 = Task(
 
 task2 = Task(
   description=f"""User query: {user_query}. Using the research findings provided, and user query create a well composed answer. Make sure it answers my query properly. If it is a Yes/NO type of question then just output Yes/No.""",
-  expected_output="Text in simple english maximum 1000 words.",
+  expected_output="Text in simple english minimum 200 words and maximum 1000 words.",
   agent=writer
 )
 
